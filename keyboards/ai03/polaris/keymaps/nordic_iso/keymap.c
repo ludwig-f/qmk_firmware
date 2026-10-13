@@ -17,7 +17,8 @@
 
 enum layer_names {
     _BASE,
-    _FN
+    _FN,
+    _SYS
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -29,10 +30,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LCTL, KC_NO,   KC_LGUI,          KC_SPC,           KC_SPC,           KC_SPC,                    KC_SPC,  KC_RALT, KC_NO, KC_RCTL
   ),
   [_FN] = LAYOUT_all( /* FN */
-    QK_BOOT, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  KC_DEL,
+    _______, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_DEL,  KC_DEL,
     _______, _______, KC_PGUP, _______, _______, _______, _______, _______, _______, _______, KC_MPRV, KC_MPLY, KC_MNXT,          BL_STEP,
     _______, KC_HOME, KC_PGDN, KC_END,  KC_VOLD, KC_VOLU, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______, _______,                   _______,
     _______, _______, UG_TOGG, UG_NEXT, UG_HUEU, UG_HUED, UG_SATU, UG_SATD, UG_VALU, UG_VALD, _______, _______, KC_PSCR, KC_PGDN,
+    _______, _______, _______,          MO(_SYS),         MO(_SYS),         MO(_SYS),                  MO(_SYS), _______, _______, _______
+  ),
+  /* Fn + Space: kept out of easy reach so QK_BOOT can't be hit by accident */
+  [_SYS] = LAYOUT_all( /* SYS */
+    QK_BOOT, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,                   _______,
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     _______, _______, _______,          _______,          _______,          _______,                   _______, _______, _______, _______
   )
 };
